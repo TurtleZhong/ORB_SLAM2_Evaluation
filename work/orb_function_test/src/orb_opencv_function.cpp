@@ -71,6 +71,20 @@ int main(int argc, char *argv[])
     cout << "pose4 = " << endl <<  pose4 << endl;
     cout << gd.getFrameRwc(4) << endl << gd.getFrametwc(4) << endl;
 
+    Mat pose_invert;
+    pose4.convertTo(pose4,CV_32FC1);
+    cout << "pose_invert = " << endl << pose4 << endl;
+
+    double test1[][1] = {3.0, 4.0};
+    Mat testMat(2,1,CV_64FC1,test1);
+    cout << "origin = " << testMat << endl;
+    cv::normalize(testMat,testMat);
+    cout << "output = " << endl << testMat << endl;
+
+    double dleft[][1] = {-0.115961, 0.129450, 0.002855, 0.006877};
+    cv::Mat D0(4, 1, CV_64FC1, dleft);
+
+
     return 0;
 }
 
